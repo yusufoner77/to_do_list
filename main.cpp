@@ -9,10 +9,12 @@ int main() {
   list.add("Buy Meat");
   list.add("Buy Milk");
   list.add("Exercise");
+  list.add("    ");
+  list.add("");
 
   list.complete("Buy Milk");
   
-  cout << "The To Do List items are:\n";
+  cout << "\nThe To Do List items are:\n";
   list.all();
 
   cout << "\nThe completed items are:\n";

@@ -15,8 +15,14 @@ void ToDoList::pretty_print(Task task) {
 }
 
 void ToDoList::add(string task_name) {
-  Task task(task_name);
-  vec.push_back(task);
+  if(task_name.find_first_not_of(' ') != string::npos) {
+    Task task(task_name);
+    vec.push_back(task);
+  }
+
+  else {
+    cout << "Blank tasks will not be added to the list!\n";
+  }
 }
 
 void ToDoList::complete(string task_name) {
