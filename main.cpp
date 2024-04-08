@@ -41,4 +41,30 @@ int main() {
 
   cout << "\nThe To Do List items are:\n";
   list.all();
+
+  cout << "\nNow to test the tag functionality...\n";
+
+  vector<string> beet_tags = { "food", "garden", "spring" };
+  list.add("Sow beet seeds", beet_tags);
+
+  vector<string> dinner_tags = { "food", "social" };
+  list.add("Go out for dinner with my wife", dinner_tags);
+
+  vector<string> run_tags = {"exercise"};
+  list.add("Go for a run", run_tags);
+  
+  cout << "\nHere are my tasks tagged with \"food\":\n";
+  list.tagged_with("food");
+
+  cout << "\nHere are my tasks tagged with \"music\":\n";
+  list.tagged_with("music");
+
+  cout << "\nNow if I complete my task \"Sow beet seeds\"...\n";
+  list.complete("Sow beet seeds");
+
+  cout << "\nHere are my tasks tagged with \"food\":\n";
+  list.tagged_with("food");
+
+  cout << "\nHere are my tasks tagged with \"music\":\n";
+  list.tagged_with("music");
 }

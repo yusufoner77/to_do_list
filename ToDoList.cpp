@@ -15,7 +15,7 @@ void ToDoList::pretty_print(Task task) {
 }
 
 // Contains One Credit Add-on "Reject Blank Tasks"
-void ToDoList::add(string task_name) {
+void ToDoList::add(string task_name, vector<string> tags) {
   if (check_for_duplicate(task_name) == true) {
      cout << "That task is already on the list!\n";
   }
@@ -26,7 +26,7 @@ void ToDoList::add(string task_name) {
   }
 
   else {
-    Task task(task_name);
+    Task task(task_name, tags);
     vec.push_back(task);
   }
 }
@@ -86,4 +86,23 @@ bool ToDoList::check_for_duplicate(string task_name) {
   }
 
   return duplicate;
+}
+
+void ToDoList::tagged_with(string tag) {
+  vector<Task>::iterator ptr;
+  bool no_tags = true;
+
+  for (ptr = vec.begin(); ptr < vec.end(); ptr++) {
+    vector<string>::iterator string_ptr;
+    for (string_ptr = ((*ptr).tags).begin(); string_ptr < ((*ptr).tags).end(); string_ptr++) {
+      if (*string_ptr == tag) {
+        cout << (*ptr).name << endl;
+        no_tags = false;
+      }
+    }
+  }
+
+  if (no_tags == true) {
+    cout << "There are no tasks with that tag.\n";
+  }
 }
